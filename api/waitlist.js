@@ -1,6 +1,7 @@
 import { neon } from '@neondatabase/serverless';
 
-const sql = neon(process.env.DATABASE_URL);
+const connectionString = process.env.The_Last_Call_DATABASE_URL || process.env.DATABASE_URL;
+const sql = neon(connectionString);
 
 async function ensureTable() {
   await sql`
