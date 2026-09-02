@@ -447,11 +447,7 @@ document.getElementById('waitlist-form').addEventListener('submit', async functi
 
     if (!res.ok) throw new Error(data.error || 'Errore');
 
-    msg.textContent = data.alreadyJoined
-      ? 'Sei già in lista — ti contatteremo prima del lancio.'
-      : 'Sei in lista — ti contatteremo prima del lancio.';
-    msg.style.display = 'block';
-    btn.textContent = 'Richiesta inviata';
+    window.location.href = '/grazie.html';
   } catch (err) {
     msg.textContent = 'Qualcosa è andato storto. Riprova tra poco.';
     msg.style.display = 'block';
