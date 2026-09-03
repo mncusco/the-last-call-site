@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accedi — The Last Call</title>
+<meta name="description" content="Accedi a The Last Call con la tua email. Niente password da ricordare, solo un codice usa e getta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#0a0c0e;
+    --panel:#111517;
+    --ink:#e9edee;
+    --ink-dim:#8b9699;
+    --signal:#6fd8d1;
+    --line:rgba(199,206,208,0.16);
+    --silver:#c7ced0;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--void);
+    color:var(--ink);
+    font-family:'Newsreader', serif;
+    font-size:18px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:48px 20px;
+  }
+  .card{
+    width:100%;
+    max-width:520px;
+    background:
+      radial-gradient(ellipse 500px 340px at 85% 10%, rgba(111,216,209,0.12), transparent 60%),
+      linear-gradient(180deg, #0d1113 0%, #0a0c0e 100%);
+    border:1px solid rgba(199,206,208,0.35);
+    border-radius:12px;
+    padding:clamp(36px, 6vw, 56px) clamp(24px, 5vw, 48px);
+    text-align:center;
+  }
+  .back{
+    display:inline-block;
+    font-family:'Space Grotesk', sans-serif;
+    font-size:.82rem;
+    letter-spacing:.08em;
+    color:var(--ink-dim);
+    text-decoration:none;
+    margin-bottom:26px;
+  }
+  .back:hover{color:var(--signal);}
+  .back:focus-visible, input:focus, button:focus-visible, a.cta:focus-visible{outline:2px solid var(--signal);outline-offset:3px;}
+  h1{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:clamp(1.7rem, 4vw, 2.3rem);
+    font-weight:600;
+    letter-spacing:.04em;
+    margin:0 0 12px 0;
+    color:var(--silver);
+    background:linear-gradient(115deg,#f4f6f6 10%, #9aa5a8 45%, #f4f6f6 60%, #838f92 90%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  p.sub{color:var(--ink-dim);font-size:1rem;margin:0 0 30px 0;}
+  form{display:flex;flex-direction:column;gap:12px;}
+  input{
+    background:transparent;
+    border:1px solid var(--line);
+    color:var(--ink);
+    padding:15px 18px;
+    font-family:'Newsreader', serif;
+    font-size:1rem;
+    border-radius:2px;
+    width:100%;
+  }
+  input::placeholder{color:var(--ink-dim);}
+  input[name="code"]{text-align:center;letter-spacing:.4em;font-size:1.3rem;font-family:'Space Grotesk', sans-serif;}
+  button{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:500;
+    letter-spacing:.04em;
+    background:var(--silver);
+    color:var(--void);
+    border:none;
+    padding:15px 18px;
+    border-radius:2px;
+    cursor:pointer;
+    font-size:1rem;
+    transition:background 220ms ease;
+  }
+  button:hover{background:var(--signal);}
+  button:disabled{opacity:.6;cursor:wait;}
+  .msg{display:none;font-family:'Space Grotesk', sans-serif;font-size:.92rem;margin:16px 0 0 0;}
+  .msg.ok{display:block;color:var(--signal);}
+  .msg.err{display:block;color:#e8a0a0;}
+  .msg.info{display:block;color:var(--ink-dim);}
+  .hidden{display:none;}
+  .alt{margin-top:26px;font-size:.92rem;color:var(--ink-dim);}
+  .alt a{color:var(--ink);}
+  a.cta{
+    display:inline-block;
+    margin-top:14px;
+    font-family:'Space Grotesk', sans-serif;
+    font-size:.9rem;
+    letter-spacing:.06em;
+    color:var(--ink);
+    text-decoration:none;
+    border:1px solid rgba(199,206,208,0.4);
+    border-radius:8px;
+    padding:12px 28px;
+  }
+  a.cta:hover{border-color:var(--signal);color:var(--signal);}
+</style>
+</head>
+<body>
+  <main class="card">
+    <a class="back" href="index.html">← THE LAST CALL</a>
+    <h1>ACCEDI</h1>
+    <p class="sub">Niente password. Ti mandiamo un codice di 6 cifre via email, valido 10 minuti.</p>
+
+    <form id="step-email">
+      <input type="email" required placeholder="tuemail@esempio.com" aria-label="Indirizzo email" id="email" autocomplete="email">
+      <button type="submit" id="btn-email">Ricevi il codice</button>
+    </form>
+
+    <form id="step-code" class="hidden">
+      <input type="text" name="code" required inputmode="numeric" pattern="[0-9]{6}" maxlength="6" placeholder="123456" aria-label="Codice di 6 cifre" id="code" autocomplete="one-time-code">
+      <button type="submit" id="btn-code">Entra</button>
+    </form>
+
+    <p class="msg" id="msg"></p>
+
+    <p class="alt">Prima volta qui? <a href="index.html#join">Mettiti in lista d'attesa</a><br>
+    <a class="cta" href="manifesto.html">Leggi il manifesto</a></p>
+  </main>
+
+<script>
+const emailForm = document.getElementById('step-email');
+const codeForm = document.getElementById('step-code');
+const msg = document.getElementById('msg');
+let currentEmail = '';
+
+function show(text, kind) {
+  msg.textContent = text;
+  msg.className = 'msg ' + kind;
+}
+
+// Legge la risposta anche se il server risponde con una pagina di errore
+// invece di JSON: mai più "Unexpected token" a video.
+async function readJson(res) {
+  const text = await res.text();
+  try {
+    return JSON.parse(text);
+  } catch {
+    throw new Error('Server momentaneamente non disponibile. Riprova fra poco.');
+  }
+}
+
+emailForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('btn-email');
+  currentEmail = document.getElementById('email').value.trim().toLowerCase();
+  btn.disabled = true;
+  btn.textContent = 'Invio in corso…';
+  show('Invio del codice in corso…', 'info');
+  try {
+    const res = await fetch('/api/auth-request', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: currentEmail }),
+    });
+    const data = await readJson(res);
+    if (!res.ok) throw new Error(data.error || 'Errore');
+    emailForm.classList.add('hidden');
+    codeForm.classList.remove('hidden');
+    document.getElementById('code').focus();
+    show(
+      data.emailSent
+        ? 'Codice inviato. Controlla la tua email (anche lo spam).'
+        : 'Codice generato. Controlla la tua email fra poco — se non arriva, riscrivici.',
+      'ok'
+    );
+    if (data.devCode) show('Modalità test — codice: ' + data.devCode, 'info');
+  } catch (err) {
+    show(err.message || 'Qualcosa è andato storto. Riprova.', 'err');
+    btn.disabled = false;
+    btn.textContent = 'Ricevi il codice';
+  }
+});
+
+codeForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('btn-code');
+  const code = document.getElementById('code').value.trim();
+  btn.disabled = true;
+  btn.textContent = 'Verifica in corso…';
+  try {
+    const res = await fetch('/api/auth-verify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: currentEmail, code }),
+    });
+    const data = await readJson(res);
+    if (!res.ok) throw new Error(data.error || 'Errore');
+    show('Bentornato. Ti porto nella tua area…', 'ok');
+    window.location.href = '/area.html';
+  } catch (err) {
+    show(err.message || 'Codice errato. Riprova.', 'err');
+    btn.disabled = false;
+    btn.textContent = 'Entra';
+  }
+});
+</script>
+</body>
+</html>
