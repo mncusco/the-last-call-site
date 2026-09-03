@@ -60,6 +60,7 @@
   }
   .hero-text{
     padding-top:40px;
+    position:relative;
   }
   .wordmark{
     font-size:clamp(2.6rem, 5.4vw, 4.6rem);
@@ -75,6 +76,34 @@
     opacity:0;
     transform:translateY(14px);
     animation:rise 900ms cubic-bezier(.2,.8,.2,1) 120ms forwards;
+  }
+  .wordmark a{
+    color:inherit;
+    text-decoration:none;
+    background:inherit;
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+    display:inline-block;
+    transition:filter 220ms ease, letter-spacing 220ms ease;
+  }
+  .wordmark a:hover{
+    filter:brightness(1.18) drop-shadow(0 0 18px rgba(111,216,209,.35));
+    letter-spacing:0.02em;
+  }
+  .wordmark a:focus-visible{
+    outline:2px solid var(--signal);
+    outline-offset:8px;
+  }
+  /* Tutta la card hero rimanda al manifesto, ma il bottone resta cliccabile */
+  .wordmark a::after{
+    content:"";
+    position:absolute;
+    inset:-20px 0 -20px 0;
+  }
+  .hero-actions{
+    position:relative;
+    z-index:2;
   }
   .tagline{
     font-family:'Space Grotesk', sans-serif;
@@ -332,7 +361,7 @@
 <header class="hero">
   <div class="hero-grid">
     <div class="hero-text">
-      <div class="wordmark">THE LAST CALL</div>
+      <h1 class="wordmark"><a href="manifesto.html" aria-label="The Last Call — vai al manifesto La tua libertà non è un dato">THE LAST CALL</a></h1>
       <p class="tagline">PRIVACY &nbsp;·&nbsp; INNOVAZIONE &nbsp;·&nbsp; UTILITÀ REALE</p>
       <p class="lede">Un social network con un'AI amichevole — che ascolta, non vende mai, e non osserva mai il tuo volto.</p>
       <div class="hero-actions">
@@ -447,7 +476,11 @@ document.getElementById('waitlist-form').addEventListener('submit', async functi
 
     if (!res.ok) throw new Error(data.error || 'Errore');
 
-    window.location.href = '/grazie.html';
+    msg.textContent = data.alreadyJoined
+      ? 'Sei già in lista — ti contatteremo prima del lancio.'
+      : 'Sei in lista — ti contatteremo prima del lancio.';
+    msg.style.display = 'block';
+    btn.textContent = 'Richiesta inviata';
   } catch (err) {
     msg.textContent = 'Qualcosa è andato storto. Riprova tra poco.';
     msg.style.display = 'block';
