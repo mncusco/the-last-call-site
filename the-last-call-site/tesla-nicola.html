@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nikola Tesla — Energia Libera — The Last Call</title>
+<meta name="description" content="Nikola Tesla: storia del pioniere della corrente alternata e dell'energia senza fili.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#0a0c0e;
+    --panel:#111517;
+    --ink:#e9edee;
+    --ink-dim:#8b9699;
+    --signal:#6fd8d1;
+    --line:rgba(199,206,208,0.16);
+    --silver:#c7ced0;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;background:var(--void);color:var(--ink);
+    font-family:'Newsreader', serif;font-size:18px;line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;display:flex;align-items:center;justify-content:center;
+    padding:48px 20px;
+  }
+  .card{
+    width:100%;max-width:880px;
+    background:
+      radial-gradient(ellipse 600px 420px at 88% 12%, rgba(111,216,209,0.12), transparent 60%),
+      linear-gradient(180deg, #0d1113 0%, #0a0c0e 100%);
+    border:1px solid rgba(199,206,208,0.35);border-radius:12px;
+    padding:clamp(40px, 7vw, 80px) clamp(24px, 6vw, 72px);
+    text-align:center;
+  }
+  .back{display:inline-block;font-family:'Space Grotesk', sans-serif;font-size:.82rem;letter-spacing:.08em;color:var(--ink-dim);text-decoration:none;margin-bottom:24px;}
+  .back:hover{color:var(--signal);}
+  .back:focus-visible,a:focus-visible{outline:2px solid var(--signal);outline-offset:4px;}
+  h1{font-family:'Space Grotesk', sans-serif;font-size:clamp(2rem,5vw,3.4rem);font-weight:600;letter-spacing:.06em;margin:0 0 6px 0;color:var(--silver);
+    background:linear-gradient(115deg,#f4f6f6 10%, #9aa5a8 45%, #f4f6f6 60%, #838f92 90%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+  .dates{font-family:'Space Grotesk', sans-serif;font-size:.95rem;letter-spacing:.14em;color:var(--signal);margin:0 0 28px 0;}
+  figure{margin:0 0 32px 0;}
+  figure img{width:100%;max-width:340px;border-radius:10px;border:1px solid rgba(199,206,208,0.4);display:block;margin:0 auto;}
+  figcaption{font-size:.82rem;color:var(--ink-dim);margin-top:10px;font-family:'Space Grotesk', sans-serif;letter-spacing:.04em;}
+  .story{text-align:left;max-width:62ch;margin:0 auto;color:var(--ink);}
+  .story p{margin:0 0 18px 0;}
+  .cta{
+    display:inline-block;margin-top:36px;
+    font-family:'Space Grotesk', sans-serif;font-size:clamp(1rem,2.4vw,1.25rem);font-weight:500;letter-spacing:.1em;
+    color:var(--ink);text-decoration:none;
+    border:1px solid rgba(199,206,208,0.55);border-radius:12px;padding:20px 48px;
+    background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0));
+    transition:background 220ms ease, border-color 220ms ease, transform 220ms ease;
+  }
+  .cta:hover{background:rgba(111,216,209,.12);border-color:var(--signal);transform:translateY(-1px);}
+  footer{margin-top:36px;color:var(--ink-dim);font-size:.85rem;font-family:'Space Grotesk', sans-serif;letter-spacing:.05em;}
+</style>
+</head>
+<body>
+  <main class="card">
+    <a class="back" href="energia-libera.html">← ENERGIA LIBERA</a>
+    <h1>NIKOLA TESLA</h1>
+    <p class="dates">1856 – 1943</p>
+
+    <figure>
+      <img src="assets/tesla-nicola.jpg" alt="Nikola Tesla, ritratto del 1890 circa">
+      <figcaption>Ritratto di Nikola Tesla, 1890 circa — pubblico dominio</figcaption>
+    </figure>
+
+    <div class="story">
+      <p>Nikola Tesla nasce nel 1856 a Smiljan, nell'allora Impero austriaco. Fin da giovane mostra una memoria e una capacità di visualizzazione straordinarie: diceva di progettare le macchine interamente nella mente, prima di costruirle.</p>
+      <p>Nel 1884 emigra negli Stati Uniti con pochi soldi in tasca e lavora brevemente per Thomas Edison, dal quale si separa per divergenze tecniche ed economiche. Da lì inizia la sua strada indipendente.</p>
+      <p>Con l'appoggio di George Westinghouse, il suo sistema a <strong>corrente alternata</strong> vince la cosiddetta «guerra delle correnti» e illumina il mondo moderno: motori, trasformatori e trasmissione a lunga distanza nascono dai suoi brevetti del 1888.</p>
+      <p>Inventa la <strong>bobina di Tesla</strong>, sperimenta la trasmissione di energia senza fili e costruisce la torre di <strong>Wardenclyffe</strong> a Long Island, sognando energia e comunicazioni libere per tutti. Il progetto si ferma per mancanza di fondi, ma l'idea non muore mai.</p>
+      <p>Muore nel 1943 a New York, povero ma libero. Oggi il suo nome è ovunque: dall'unità di misura dell'induzione magnetica alle auto elettriche. La sua storia ci ricorda che l'energia — come la conoscenza — dovrebbe servire le persone, non catturarle.</p>
+    </div>
+
+    <a class="cta" href="brevetti-tesla.html">SCOPRI I SUOI PROGETTI</a>
+
+    <footer>I tuoi dati. La tua voce. Il tuo futuro. — © 2026 The Last Call</footer>
+  </main>
+</body>
+</html>
