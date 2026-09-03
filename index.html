@@ -320,6 +320,11 @@
     transition:background 220ms ease;
   }
   .join button:hover{background:var(--signal);}
+  .join .contact-note{
+    color:var(--ink-dim);
+    font-size:0.95rem;
+    margin:14px 0 0 0;
+  }
   .join .confirm{
     display:none;
     color:var(--signal);
@@ -366,7 +371,7 @@
       <p class="lede">Un social network con un'AI amichevole — che ascolta, non vende mai, e non osserva mai il tuo volto.</p>
       <div class="hero-actions">
         <a class="cta" href="#join">Unisciti a The Last Call</a>
-        <span class="price-tag">da <strong>€5</strong> / anno</span>
+        <span class="price-tag">solo <strong>€5</strong> / anno</span>
       </div>
     </div>
     <div class="hero-figure">
@@ -443,8 +448,9 @@
     <p class="price-note">Un solo prezzo. Nessun livello. Nessuna pubblicità da sbloccare.</p>
     <form id="waitlist-form">
       <input type="email" required placeholder="tuemail@esempio.com" aria-label="Indirizzo email" id="waitlist-email">
-      <button type="submit">Iscriviti alla lista d'attesa</button>
+      <button type="submit">Lista di attesa</button>
     </form>
+    <p class="contact-note">(ci metteremo noi in contatto con te fra poco)</p>
     <p class="confirm" id="waitlist-msg"></p>
   </div>
 </section>
@@ -485,7 +491,7 @@ document.getElementById('waitlist-form').addEventListener('submit', async functi
     msg.textContent = 'Qualcosa è andato storto. Riprova tra poco.';
     msg.style.display = 'block';
     btn.disabled = false;
-    btn.textContent = "Iscriviti alla lista d'attesa";
+    btn.textContent = "Lista di attesa";
   }
 });
 </script>
