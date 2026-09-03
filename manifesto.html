@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La tua libertà non è un dato — The Last Call</title>
+<meta name="description" content="The Last Call nasce per restituirti il centro: privacy reale, scelte consapevoli, presenza umana. Nessuna pubblicità, nessuna vendita dati, nessun profilo biometrico.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#0a0c0e;
+    --panel:#111517;
+    --ink:#e9edee;
+    --ink-dim:#8b9699;
+    --signal:#6fd8d1;
+    --line:rgba(199,206,208,0.16);
+    --silver:#c7ced0;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--void);
+    color:var(--ink);
+    font-family:'Newsreader', serif;
+    font-size:18px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:48px 20px;
+  }
+  .manifesto-card{
+    position:relative;
+    width:100%;
+    max-width:1180px;
+    background:
+      radial-gradient(ellipse 700px 500px at 88% 20%, rgba(111,216,209,0.12), transparent 60%),
+      radial-gradient(ellipse 600px 500px at 8% 90%, rgba(111,216,209,0.10), transparent 60%),
+      linear-gradient(180deg, #0d1113 0%, #0a0c0e 100%);
+    border:1px solid rgba(199,206,208,0.35);
+    border-radius:12px;
+    padding:clamp(48px, 7vw, 96px) clamp(24px, 6vw, 88px);
+    text-align:center;
+    overflow:hidden;
+  }
+  .back{
+    position:absolute;
+    top:24px;
+    left:28px;
+    font-family:'Space Grotesk', sans-serif;
+    font-size:.85rem;
+    letter-spacing:.06em;
+    color:var(--ink-dim);
+    text-decoration:none;
+  }
+  .back:hover{color:var(--signal);}
+  .back:focus-visible{outline:2px solid var(--signal);outline-offset:4px;}
+  h1{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:clamp(2rem, 5.2vw, 4.2rem);
+    font-weight:600;
+    letter-spacing:.06em;
+    line-height:1.08;
+    margin:0 0 32px 0;
+    color:var(--silver);
+    background:linear-gradient(115deg,#f4f6f6 10%, #9aa5a8 45%, #f4f6f6 60%, #838f92 90%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .lede{
+    font-size:clamp(1.05rem, 2vw, 1.3rem);
+    color:var(--ink);
+    max-width:62ch;
+    margin:0 auto 28px auto;
+  }
+  .lede strong{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:500;
+    letter-spacing:.04em;
+  }
+  .pillars-line{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:clamp(.95rem, 1.8vw, 1.15rem);
+    letter-spacing:.14em;
+    color:var(--ink);
+    margin:44px 0 18px 0;
+  }
+  .guarantees{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:.85rem;
+    letter-spacing:.08em;
+    color:var(--ink-dim);
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    flex-wrap:wrap;
+    margin:0 0 32px 0;
+  }
+  .guarantees span.sep{color:var(--line);}
+  .choice{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:clamp(.95rem, 2vw, 1.15rem);
+    letter-spacing:.18em;
+    line-height:1.9;
+    color:var(--ink);
+    margin:0 0 44px 0;
+  }
+  .cta{
+    display:inline-block;
+    font-family:'Space Grotesk', sans-serif;
+    font-size:clamp(1rem, 2.4vw, 1.35rem);
+    font-weight:500;
+    letter-spacing:.12em;
+    color:var(--ink);
+    text-decoration:none;
+    border:1px solid rgba(199,206,208,0.55);
+    border-radius:12px;
+    padding:20px 52px;
+    background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0));
+    transition:background 220ms ease, border-color 220ms ease, transform 220ms ease;
+  }
+  .cta:hover{background:rgba(111,216,209,.12);border-color:var(--signal);transform:translateY(-1px);}
+  .cta:focus-visible{outline:2px solid var(--signal);outline-offset:4px;}
+  footer{margin-top:40px;color:var(--ink-dim);font-size:.85rem;font-family:'Space Grotesk', sans-serif;letter-spacing:.05em;}
+  @media (max-width:640px){
+    body{padding:20px 12px;}
+    .back{position:static;display:inline-block;margin-bottom:24px;}
+  }
+</style>
+</head>
+<body>
+  <main class="manifesto-card">
+    <a class="back" href="index.html">← THE LAST CALL</a>
+    <h1>LA TUA LIBERTÀ<br>NON È UN DATO</h1>
+
+    <p class="lede">Viviamo dentro sistemi progettati per trattenerci.<br>Ogni scroll, ogni impulso, ogni profilo costruito su di te<br>può diventare una forma invisibile di dipendenza.</p>
+
+    <p class="lede"><strong>THE LAST CALL</strong> nasce per restituirti il centro:<br>un luogo digitale dove la tecnologia serve la persona,<br>non la cattura.</p>
+
+    <p class="pillars-line">PRIVACY REALE. SCELTE CONSAPEVOLI. PRESENZA UMANA.</p>
+
+    <div class="guarantees">
+      <span>NESSUNA PUBBLICITÀ</span><span class="sep">|</span>
+      <span>NESSUNA VENDITA DEI TUOI DATI</span><span class="sep">|</span>
+      <span>NESSUN PROFILO BIOMETRICO</span>
+    </div>
+
+    <p class="choice">SCEGLI DI NON ESSERE IL PRODOTTO.<br>SCEGLI DI ESSERE PRESENTE.</p>
+
+    <a class="cta" href="index.html#join">ENTER THE LAST CALL</a>
+
+    <footer>I tuoi dati. La tua voce. Il tuo futuro. — © 2026 The Last Call</footer>
+  </main>
+</body>
+</html>
