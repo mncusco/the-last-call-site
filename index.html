@@ -462,6 +462,16 @@
     <h2>Costruito per le persone. Non per gli inserzionisti.</h2>
     <div class="price-num">€5 / anno</div>
     <p class="price-note">Un solo prezzo. Nessun livello. Nessuna pubblicità da sbloccare.</p>
+    <p class="price-note" style="margin-top:4px"><strong>I primi 100 iscritti entrano gratis, per sempre.</strong> Dal 101° in poi, €5/anno.</p>
+    <div id="founder-counter" style="max-width:360px;margin:20px auto 0" aria-live="polite">
+      <div style="display:flex;justify-content:space-between;font-size:.8rem;opacity:.75;margin-bottom:6px">
+        <span id="counter-label">Posti fondatori gratuiti</span>
+        <span id="counter-nums">…</span>
+      </div>
+      <div style="height:6px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden">
+        <div id="counter-bar" style="height:100%;width:0%;background:currentColor;border-radius:999px;transition:width .5s ease"></div>
+      </div>
+    </div>
     <form id="waitlist-form">
       <input type="email" required placeholder="tuemail@esempio.com" aria-label="Indirizzo email" id="waitlist-email">
       <button type="submit">Lista di attesa</button>
@@ -515,6 +525,27 @@ document.getElementById('waitlist-form').addEventListener('submit', async functi
     btn.textContent = "Lista di attesa";
   }
 });
+
+(async function () {
+  const label = document.getElementById('counter-label');
+  const nums = document.getElementById('counter-nums');
+  const bar = document.getElementById('counter-bar');
+  try {
+    const res = await fetch('/api/signup-count');
+    const data = await res.json();
+    if (!res.ok) throw new Error();
+    if (data.full) {
+      label.textContent = 'Posti fondatori esauriti';
+      nums.textContent = data.count + '/' + data.limit;
+    } else {
+      nums.textContent = data.remaining + ' rimasti su ' + data.limit;
+    }
+    const pct = Math.min(100, Math.round((data.count / data.limit) * 100));
+    bar.style.width = pct + '%';
+  } catch {
+    document.getElementById('founder-counter').style.display = 'none';
+  }
+})();
 </script>
 </body>
 </html>
