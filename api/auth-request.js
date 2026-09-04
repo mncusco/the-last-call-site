@@ -98,6 +98,31 @@ export default async function handler(req, res) {
         }
       }
       rows = await sql`SELECT id FROM users WHERE email = ${normalized}`;
+
+      // Primi 100 iscritti: accesso fondatore gratuito, automatico.
+      if (rows.length > 0) {
+        const countRows = await sql`SELECT COUNT(*)::int AS count FROM users`;
+        if (countRows[0].count <= 100) {
+          await sql`
+            CREATE TABLE IF NOT EXISTS subscriptions (
+              user_id INT PRIMARY KEY REFERENCES users (id) ON DELETE CASCADE,
+              provider TEXT NOT NULL DEFAULT 'revolut',
+              status TEXT NOT NULL DEFAULT 'pending',
+              revolut_ref TEXT,
+              proof_url TEXT,
+              paid_at TIMESTAMPTZ,
+              expires_at TIMESTAMPTZ,
+              verified_at TIMESTAMPTZ,
+              created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+            )
+          `;
+          await sql`
+            INSERT INTO subscriptions (user_id, provider, status, verified_at)
+            VALUES (${rows[0].id}, 'founder_free', 'active', now())
+            ON CONFLICT (user_id) DO NOTHING
+          `;
+        }
+      }
     }
     if (rows.length === 0) {
       return res.status(500).json({ error: 'Errore del server, riprova più tardi' });
