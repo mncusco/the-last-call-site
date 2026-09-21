@@ -4,7 +4,7 @@
 
 Se scopri una vulnerabilità di sicurezza in questo progetto, contatta direttamente:
 
-**Email:** [inserisci qui la tua email di contatto]
+**Email:** marcello.buglione@gmail.com
 
 Includi:
 - Descrizione della vulnerabilità
